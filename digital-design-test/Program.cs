@@ -11,40 +11,37 @@ public class MainClass
 {
     public static void Main()
     {
-
         string text = "";
-
         string path = @"text.txt"; // \digital-design-test\bin\Debug\net6.0
         using (StreamReader reader = new StreamReader(path))
         {
             text = reader.ReadToEnd();
         }
 
-
         UniqueFinder finder = new UniqueFinder();
-
         Type type = finder.GetType();
-
         MethodInfo privateMethod = type.GetMethod("GetUniqueWords", BindingFlags.NonPublic | BindingFlags.Instance);
+
+        // Начало отсчета для функции без многопоточности
+        Stopwatch stopwatch = new Stopwatch();
+        stopwatch.Start();
 
         Dictionary<string, int> SortedDictionary = (Dictionary<string, int>)privateMethod.Invoke(finder, new object[] { text });
 
-        //string[] words = text.ToLower().Split(new char[] { ' ', '.', ',', ';', ':', '-', '!', '?', '(', ')', '[', ']', '{', '}', '\t', '\n', '\r', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0' }, StringSplitOptions.RemoveEmptyEntries);
+        stopwatch.Stop();
+        TimeSpan nonThreadingTime = stopwatch.Elapsed;
+        // Конец отсчета без многопоточности
 
-        //Dictionary<string, int> UniqueWords = new Dictionary<string, int>();
-        //foreach (string word in words)
-        //{
-        //    if (UniqueWords.ContainsKey(word))
-        //    {
-        //        UniqueWords[word]++;
-        //    }
-        //    else
-        //    {
-        //        UniqueWords.Add(word, 1);
-        //    }
-        //}
+        stopwatch.Reset();
 
-        //var SortedDictionary = UniqueWords.OrderByDescending(x => x.Value).ToDictionary(x => x.Key, x => x.Value);
+        // Начало отсчета для функции с многопоточностью
+        stopwatch.Start();
+
+        SortedDictionary = finder.GetUniqueWordsMultiThread(text);
+
+        stopwatch.Stop();
+        TimeSpan withThreadingTime = stopwatch.Elapsed;
+        // Конец отсчета с многопоточностью
 
         Console.OutputEncoding = Encoding.UTF8;
         if (SortedDictionary != null)
@@ -58,6 +55,8 @@ public class MainClass
             }
         }
 
+        Console.WriteLine("Приватный без многопоточности: " + nonThreadingTime.TotalMilliseconds + " миллисекунд");
+        Console.WriteLine("Публичный с многопоточностью: " + withThreadingTime.TotalMilliseconds + " миллисекунд");
 
     }
 }
