@@ -8,4 +8,10 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Reference Include="GetUniqueWords">
+      <HintPath>GetUniqueWords.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
 </Project>
