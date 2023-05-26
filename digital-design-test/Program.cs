@@ -58,5 +58,8 @@ public class MainClass
         Console.WriteLine("Приватный без многопоточности: " + nonThreadingTime.TotalMilliseconds + " миллисекунд");
         Console.WriteLine("Публичный с многопоточностью: " + withThreadingTime.TotalMilliseconds + " миллисекунд");
 
+        Console.WriteLine();
+        Console.WriteLine("Нажмите любую клавишу для выхода...");
+        Console.ReadKey();
     }
 }
