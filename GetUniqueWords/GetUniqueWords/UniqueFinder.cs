@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -33,19 +34,16 @@ namespace GetUniqueWords
         {
             string[] words = text.ToLower().Split(new char[] { ' ', '.', ',', ';', ':', '-', '!', '?', '(', ')', '[', ']', '{', '}', '\t', '\n', '\r', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0' }, StringSplitOptions.RemoveEmptyEntries);
 
-            Dictionary<string, int> UniqueWords = new Dictionary<string, int>();
+            ConcurrentDictionary<string, int> UniqueWords = new ConcurrentDictionary<string, int>();
             Parallel.ForEach(words, (word) =>
             {
-                lock (UniqueWords) 
+                if (UniqueWords.ContainsKey(word))
                 {
-                    if (UniqueWords.ContainsKey(word))
-                    {
-                        UniqueWords[word]++;
-                    }
-                    else
-                    {
-                        UniqueWords.Add(word, 1);
-                    }
+                    UniqueWords[word]++;
+                }
+                else
+                {
+                    UniqueWords.TryAdd(word, 1);
                 }
             });
 
