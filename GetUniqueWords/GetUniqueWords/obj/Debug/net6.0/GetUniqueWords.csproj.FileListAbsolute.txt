@@ -1,0 +1,12 @@
+D:\Work\digital-design-test\GetUniqueWords\GetUniqueWords\bin\Debug\net6.0\GetUniqueWords.deps.json
+D:\Work\digital-design-test\GetUniqueWords\GetUniqueWords\bin\Debug\net6.0\GetUniqueWords.dll
+D:\Work\digital-design-test\GetUniqueWords\GetUniqueWords\bin\Debug\net6.0\ref\GetUniqueWords.dll
+D:\Work\digital-design-test\GetUniqueWords\GetUniqueWords\bin\Debug\net6.0\GetUniqueWords.pdb
+D:\Work\digital-design-test\GetUniqueWords\GetUniqueWords\obj\Debug\net6.0\GetUniqueWords.csproj.AssemblyReference.cache
+D:\Work\digital-design-test\GetUniqueWords\GetUniqueWords\obj\Debug\net6.0\GetUniqueWords.GeneratedMSBuildEditorConfig.editorconfig
+D:\Work\digital-design-test\GetUniqueWords\GetUniqueWords\obj\Debug\net6.0\GetUniqueWords.AssemblyInfoInputs.cache
+D:\Work\digital-design-test\GetUniqueWords\GetUniqueWords\obj\Debug\net6.0\GetUniqueWords.AssemblyInfo.cs
+D:\Work\digital-design-test\GetUniqueWords\GetUniqueWords\obj\Debug\net6.0\GetUniqueWords.csproj.CoreCompileInputs.cache
+D:\Work\digital-design-test\GetUniqueWords\GetUniqueWords\obj\Debug\net6.0\GetUniqueWords.dll
+D:\Work\digital-design-test\GetUniqueWords\GetUniqueWords\obj\Debug\net6.0\ref\GetUniqueWords.dll
+D:\Work\digital-design-test\GetUniqueWords\GetUniqueWords\obj\Debug\net6.0\GetUniqueWords.pdb

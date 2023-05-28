@@ -16,7 +16,7 @@
 
   <ItemGroup>
     <Reference Include="GetUniqueWords">
-      <HintPath>..\GetUniqueWords.dll</HintPath>
+      <HintPath>GetUniqueWords.dll</HintPath>
     </Reference>
   </ItemGroup>
 
