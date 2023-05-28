@@ -5,7 +5,9 @@ class Program
     static HttpClient httpClient = new HttpClient();
     static async Task Main()
     {
-        var content = JsonContent.Create("Привет как дела Привет как дела Привет как дела test test testt");
+        Console.WriteLine("Введите строку для обработки");
+        string data = Console.ReadLine();
+        var content = JsonContent.Create(data);
         
         using var request = new HttpRequestMessage(HttpMethod.Post, "https://localhost:7230/api/GetUniqueWords");
         request.Content = content;
